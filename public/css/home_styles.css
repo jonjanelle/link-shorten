@@ -1,0 +1,36 @@
+
+body {
+  margin: 0; 
+  padding: 0;
+}
+
+form {
+  text-align: center;
+}
+
+#output {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+#copy-msg {
+  font-style: italic;
+}
+
+#header-div {
+  margin: 40px;
+}
+#main-header{
+  font-size: 3.5em;
+}
+
+#sub-header {
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+
+#shorturl {
+  margin-bottom: 0;
+}
