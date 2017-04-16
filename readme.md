@@ -1,3 +1,4 @@
 ## Link Shortener
 
-A link shortener application in the style of bitly and tinyurl. 
+* A link shortener application in the style of bitly and tinyurl. 
+* Works by associating each long url with a unique base-10 id number, and then encoding the id number in base-62. The encoded id is the shortened url. 
