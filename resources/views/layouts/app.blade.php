@@ -15,7 +15,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
       <!-- Custom CSS -->
-    <link href="css/home_styles.css" rel="stylesheet">
+    <link href="{{ asset('css/home_styles.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.sm = {!! json_encode([
