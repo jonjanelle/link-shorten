@@ -22,7 +22,7 @@
     <div id="output">
       <h2>shortened url </h2>
       <div class="alert alert-success" id = "shorturl" onclick="copyToClipboard()">
-        http://localhost/{{$shortUrl}}
+        {{env('APP_URL', 'localhost')}}/{{$shortUrl}}
       </div>
       <p id="copy-msg">click link to copy to clipboard</p>
     </div>
