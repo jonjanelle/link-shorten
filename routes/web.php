@@ -14,7 +14,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 
-Route::get('/', function () {return view('shorten');});
+Route::get('/', function () {return view('shorten')->with(['url'=>""]);});
 
 Route::post('/shorten','ShortenController@shorten');
 
