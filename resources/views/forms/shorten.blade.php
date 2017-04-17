@@ -13,7 +13,7 @@
       {{ csrf_field() }}
       <div class="form-group">
         <label for="link-input">Paste your link below</label>
-        <input type="text" class="form-control" id="link-input" name="link-input" placeholder="http://" value="{{$url}}" required autofocus>
+        <input type="text" class="form-control" id="link-input" name="link-input" placeholder="http://" value={{isset($url)?$url:""}} required autofocus>
       </div>
       <button type="submit" class="btn btn-primary btn-lg" id="main-submit">Shorten it!</button>
     </form>
