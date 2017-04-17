@@ -44,16 +44,16 @@ form {
 }
 
 #history-table {
-  height: 60vh;
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
+  max-height: 50vh;
 }
 
 .table {
     table-layout: fixed;
-}
 
+}
 
 .table th, td, tr {
   text-align: center;
@@ -65,9 +65,13 @@ form {
   background-color: #999999;
   color: white;
 }
+#form-container {
+  margin-top: 20px;
+  margin-bottom: 5vh;
+}
 
 #main-form {
-  margin-bottom: 5vh;
+
 }
 
 #user-dash {
