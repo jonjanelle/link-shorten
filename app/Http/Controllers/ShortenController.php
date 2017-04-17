@@ -7,6 +7,16 @@ use DB, App\Link;
 
 class ShortenController extends Controller
 {
+    private $symbols = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e',
+                'f','g','h','i','j','k','l','m','n','o','p','q','r','s','t',
+                'u','v','w','x','y','z','A','B','C','D','E','F','G','H','I',
+                'J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X',
+                'Y','Z'];
+
+    /*
+    * Store new url in database, convert its id number to a base-62 string,
+    * and return it to the home view
+    */
     public function shorten(Request $request)
     {
       $url = $request->input('link-input');
@@ -14,20 +24,13 @@ class ShortenController extends Controller
       $newLink->url = $url;
       $newLink->save();
       $shortUrl=$this->idToUrl($newLink->id);
-      return view('home')->with(['message'=>"Link creation successful!",
+      return view('shorten')->with(['message'=>"Link creation successful!",
                                  'shortUrl'=>$shortUrl]);
     }
 
-    //encode id number in base 62.
-    //TO DO: add ability to specify base
+    //encode base-10 id number in base 62.
     public function idToUrl($id){
-
       $base = 62;
-      $symbols = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e',
-                  'f','g','h','i','j','k','l','m','n','o','p','q','r','s','t',
-                  'u','v','w','x','y','z','A','B','C','D','E','F','G','H','I',
-                  'J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X',
-                  'Y','Z'];
 
       $maxPow = (int)log($id, $base);
       $res ='';
@@ -35,29 +38,25 @@ class ShortenController extends Controller
         $div = pow($base,$maxPow-$i);
         $digit = intdiv($id,$div);
         $id -= $div*$digit;
-        $res= $res.$symbols[$digit];
+        $res= $res.$this->symbols[$digit];
       }
       return $res;
     }
 
+    //Convert url to base-62 id number
     public function urlToId($url) {
       $base = 62;
-      $symbols = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e',
-                  'f','g','h','i','j','k','l','m','n','o','p','q','r','s','t',
-                  'u','v','w','x','y','z','A','B','C','D','E','F','G','H','I',
-                  'J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X',
-                  'Y','Z'];
 
       $res = 0;
       $len = strlen($url);
       for ($i=0; $i<$len; $i++) {
         $char = substr($url, $i, $i+1);
-        $res += array_search($char,$symbols)*pow($base,$len-$i-1);
+        $res += array_search($char,$this->symbols)*pow($base,$len-$i-1);
       }
       return $res;
     }
 
-
+    //Given short url code, get original url and redirect
     public function shortRoute($short)
     {
       $id = $this->urlToId($short);

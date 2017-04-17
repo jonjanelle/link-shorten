@@ -10,10 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/', function () {return view('shorten');});
 
 Route::post('/shorten','ShortenController@shorten');
 

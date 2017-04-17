@@ -1,6 +1,6 @@
 
 body {
-  margin: 0; 
+  margin: 0;
   padding: 0;
 }
 
@@ -28,8 +28,6 @@ form {
   font-style: italic;
   font-weight: bold;
 }
-
-
 
 #shorturl {
   margin-bottom: 0;
