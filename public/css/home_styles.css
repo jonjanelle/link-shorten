@@ -14,7 +14,7 @@ form {
 
 #error-box {
   margin: 0 auto;
-  width: 60vw;
+  width: 65vw;
   text-align: center;
 }
 #output {
@@ -52,7 +52,6 @@ form {
 
 .table {
     table-layout: fixed;
-
 }
 
 .table th, td, tr {
@@ -65,13 +64,10 @@ form {
   background-color: #999999;
   color: white;
 }
+
 #form-container {
-  margin-top: 20px;
+  margin-top: 1vh;
   margin-bottom: 5vh;
-}
-
-#main-form {
-
 }
 
 #user-dash {
