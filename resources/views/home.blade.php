@@ -25,7 +25,7 @@
                         @foreach ($links as $link)
                           <tr>
                             <td>{{$link->url}}</td>
-                            <td>http://localhost/{{$link->shorturl}}</td>
+                            <td>{{env('APP_URL', 'localhost')}}/{{$link->shorturl}}</td>
                           </tr>
                         @endforeach
                       </tbody>
