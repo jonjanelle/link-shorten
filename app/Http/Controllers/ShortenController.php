@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB, App\Link;
+use DB, App\Link, Auth;
 
 class ShortenController extends Controller
 {
@@ -20,12 +20,18 @@ class ShortenController extends Controller
     public function shorten(Request $request)
     {
       $url = $request->input('link-input');
+      if (!$url){ return view('shorten');}
       $newLink = new Link();
       $newLink->url = $url;
       $newLink->save();
-      $shortUrl=$this->idToUrl($newLink->id);
-      return view('shorten')->with(['message'=>"Link creation successful!",
-                                 'shortUrl'=>$shortUrl]);
+      $newLink->shorturl=$this->idToUrl($newLink->id);
+      if (!Auth::guest()){
+        $newLink->user()->associate(Auth::user());
+      }
+      $newLink->save();
+
+      return view('shorten')->with(['shortUrl'=>$newLink->shorturl,
+                                    'url'=>$url]);
     }
 
     //encode base-10 id number in base 62.
@@ -61,6 +67,11 @@ class ShortenController extends Controller
     {
       $id = $this->urlToId($short);
       $url = Link::where('id', $id)->get();
-      return redirect()->away($url[0]->url);
+      if (count($url)>0){
+        return redirect()->away($url[0]->url);
+      } else {
+        $errMsg = "Sorry, that shortened link is invalid!";
+        return view('shorten')->with(['error'=>$errMsg]);
+      }
     }
 }

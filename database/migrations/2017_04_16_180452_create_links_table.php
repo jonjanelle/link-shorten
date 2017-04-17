@@ -16,7 +16,7 @@ class CreateLinksTable extends Migration
       Schema::create('links', function (Blueprint $table) {
         $table->increments('id');
         $table->text('url');
-        //$table->string('shorturl');
+        $table->string('shorturl')->nullable();
         $table->timestamps();
       });
     }
@@ -28,7 +28,6 @@ class CreateLinksTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('links');
+      Schema::dropIfExists('links');
     }
 }
