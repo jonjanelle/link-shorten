@@ -22,19 +22,14 @@ $( document ).ready(function() {
     document.execCommand("copy");
     temp.remove();
     $('#copy-msg').html("Copied to clipboard!");
-    $('#copy-msg').css("color","#CC3333");
+    $('#copy-msg').css("color","#30A030");
     $('#copy-msg').fadeOut( 2000, function() {
        $( "#copy-msg" ).fadeIn( "slow" );
        $('#copy-msg').html("Click cell to copy contents to clipboard.");
-       $('#copy-msg').css("color","#3333FF");
+       $('#copy-msg').css("color","#1414A0");
     });
   });
 
   /* Close collapsed navbar upon click away */
-  $("body").click(function(event) {
-      // only do this if navigation is visible, otherwise you see jump in navigation while collapse() is called
-       if ($(".navbar-collapse").is(":visible") && $(".navbar-toggle").is(":visible") ) {
-          $('.navbar-collapse').collapse('toggle');
-      }
-  });
+
 });

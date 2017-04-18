@@ -9,7 +9,7 @@
         </div>
     </div>
     <!-- /.row -->
-    <form method="POST" action="/shorten" id="main-form">
+    <form method="POST" action="/{{isset($submitRoute)?$submitRoute:'shorten'}}" id="main-form">
       {{ csrf_field() }}
       <div class="form-group">
         <label for="link-input">Paste your link below</label>

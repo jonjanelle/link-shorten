@@ -11,11 +11,14 @@
 |
 */
 Auth::routes();
+
+
+Route::get('/', function () {
+  return view('shorten')->with(['url'=>"",
+                                'submitRoute'=>'shorten']);
+});
+
 Route::get('/home', 'HomeController@index');
-
-
-Route::get('/', function () {return view('shorten')->with(['url'=>""]);});
-
-Route::post('/shorten','ShortenController@shorten');
+Route::post('/shorten/{source}','ShortenController@shorten');
 
 Route::get('/{short}','ShortenController@shortRoute');
