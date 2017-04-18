@@ -4,7 +4,7 @@
         <div class="col text-center">
           <div id="header-div">
             <div id="main-header">URL Shortener</div>
-            <div id="sub-header">make long links easier to share</div>
+            <div id="sub-header">make long links easy to share</div>
           </div>
         </div>
     </div>
