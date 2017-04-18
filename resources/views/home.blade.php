@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <div class="panel panel-success">
+  <div class="panel panel-success  shadow-transition">
     <div class="panel-heading">
       Account Dashboard - Welcome {{Auth::user()->name}}!
     </div>
@@ -16,6 +16,7 @@
               <tr>
                 <th colspan="3">Url</th>
                 <th colspan="3">Short Url</th>
+                <th colspan="1">Visits</th>
               </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                 <tr>
                   <td colspan="3">{{$link->url}}</td>
                   <td colspan="3">{{env('APP_URL', 'localhost')}}/{{$link->shorturl}}</td>
+                  <td colspan="1">{{$link->visits}}</td>
                 </tr>
               @endforeach
             </tbody>

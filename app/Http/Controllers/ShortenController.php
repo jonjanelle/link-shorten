@@ -68,9 +68,11 @@ class ShortenController extends Controller
       $id = $this->urlToId($short);
       $url = Link::where('id', $id)->get();
       if (count($url)>0){
+        $url[0]->visits+=1;
+        $url[0]->save();
         return redirect()->away($url[0]->url);
       } else {
-        $errMsg = "Sorry, that shortened link is invalid!";
+        $errMsg = "Sorry, that link is invalid!";
         return view('shorten')->with(['error'=>$errMsg]);
       }
     }

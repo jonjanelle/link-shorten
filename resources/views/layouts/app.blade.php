@@ -15,7 +15,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
       <!-- Custom CSS -->
-    <link href="{{ asset('css/home_styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shorten.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.sm = {!! json_encode([
@@ -44,8 +44,6 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-
-
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -84,7 +82,7 @@
 
     <!-- Bootstrap Core JavaScript and jQuery -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{asset('js/shorten_scripts.js')}}"></script>
+    <script src="{{asset('js/shorten.js')}}"></script>
     @stack('scripts')
 </body>
 </html>

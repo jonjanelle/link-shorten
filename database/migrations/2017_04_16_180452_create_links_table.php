@@ -17,6 +17,7 @@ class CreateLinksTable extends Migration
         $table->increments('id');
         $table->text('url');
         $table->string('shorturl')->nullable();
+        $table->string('visits')->default(0);
         $table->timestamps();
       });
     }
