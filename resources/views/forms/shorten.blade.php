@@ -21,7 +21,7 @@
   @isset ($shortUrl)
     <div id="output">
       <h2>shortened url </h2>
-      <div class="alert alert-success" id = "shorturl" onclick="copyToClipboard()">
+      <div class="alert alert-success shadow-transition" id = "shorturl" onclick="copyToClipboard()">
         {{env('APP_URL', 'localhost')}}/{{$shortUrl}}
       </div>
       <p id="copy-msg">click link to copy to clipboard</p>

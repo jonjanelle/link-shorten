@@ -81,3 +81,13 @@ form {
   margin: 0 auto;
   max-height: 60vh;
 }
+
+/*Hover/mouse leave box shadow changes*/
+.shadow-transition {
+  transition: box-shadow 1s ease;
+  box-shadow: none;
+}
+.shadow-transition:hover {
+  transition: box-shadow .3s ease;
+  box-shadow: 0 5px 10px 3px rgba(100,100,100,.7);
+}
