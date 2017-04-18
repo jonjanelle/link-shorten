@@ -29,4 +29,3 @@
   @endisset
 
 </div><!-- /.container -->
-<script src="js/shorten_scripts.js"></script>

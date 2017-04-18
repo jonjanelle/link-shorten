@@ -84,6 +84,7 @@
 
     <!-- Bootstrap Core JavaScript and jQuery -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{asset('js/shorten_scripts.js')}}"></script>
     @stack('scripts')
 </body>
 </html>
