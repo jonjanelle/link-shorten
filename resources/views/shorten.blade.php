@@ -38,5 +38,5 @@
         <p id="copy-msg">click link to copy to clipboard</p>
       </div>
     @endisset
-  </div><!-- /.container -->
+  </div> <!-- /.container -->
 @endsection
